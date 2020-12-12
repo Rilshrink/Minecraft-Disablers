@@ -1,6 +1,6 @@
 public class ColdNetworkDisabler extends Module {
-    public OnlyMCDisabler() {
-        super("ColdNetworkDisabler", "Disables Cold Networks's Anticheat", Catagory.MISC); // They use a weird config of verus 
+    public ColdNetworkDisabler() {
+        super("ColdNetworkDisabler", "Disables Cold Network's Anticheat", Catagory.MISC); // They use a weird config of verus 
     }
     ArrayList<Packet> transactions = new ArrayList<Packet>();
     int currentTransaction = 0;
