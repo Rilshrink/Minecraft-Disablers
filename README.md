@@ -3,4 +3,5 @@ A list of known Minecraft Anticheat Disablers, this is mostly so the Dev's of th
 
 Current Disablers:
 Kauri (Is gonna get patched soon), 
-OnlyMC
+OnlyMC Works infinitly,
+Cold Network Disabler (Works for abt 2 minutes and then kicks you to the lobby, staff alerts, no ban)
