@@ -1,4 +1,4 @@
-public void KauriDisabler extends Module {
+public class KauriDisabler extends Module {
     public KauriDisabler() {
         super("Disabler", "Disables Kauri Anticheat", Catagory.MISC);
     }
