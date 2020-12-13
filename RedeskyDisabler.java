@@ -20,14 +20,14 @@ public class RedeskyDisabler extends Module {
             float z = RandomUtils.randFloat(10.1f, 50F);
             
             if (mc.thePlayer.ticksExisted % 4 == 0) {
-					      c03.x += (RandomUtils.random.nextBoolean() ? x : -x);
-					      c03.y += (RandomUtils.random.nextBoolean() ? y : -y);
-					      c03.z += (RandomUtils.random.nextBoolean() ? z : -z);
-				    }
-				    if(c03.getRotating()) {
-					      c03.yaw = startYaw;
-					      c03.pitch = startPtuch;
-				    }
+		c03.x += (RandomUtils.random.nextBoolean() ? x : -x);
+		c03.y += (RandomUtils.random.nextBoolean() ? y : -y);
+		c03.z += (RandomUtils.random.nextBoolean() ? z : -z);
+	    }
+	    if(c03.getRotating()) {
+		c03.yaw = mc.thePlayer.ticksExisted % 2 == 0 ? startYaw : mc.thePlayer.lastReportedYaw;
+		c03.pitch = mc.thePlayer.ticksExisted % 2 == 0 ? startPitch : mc.thePlayer.lastReportedPitch;
+	    }
         }
     }
     public void onUpdate() {
