@@ -6,4 +6,5 @@ Kauri <br>
 Cold Network (Temporary 10 minutes) <br>
 OnlyMC infinite <br>
 LunarGG infinite <br>
-Redesky 'disabler' it allows you to vanilla fly infinitely but other than that not really a disabler.
+Redesky 'disabler' it allows you to vanilla fly infinitely but other than that not really a disabler. <br>
+ACMC Disabler, wrote it from memory, might not work will test...
