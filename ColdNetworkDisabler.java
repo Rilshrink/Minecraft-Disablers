@@ -44,8 +44,8 @@ public class ColdNetworkDisabler extends Module {
     
     public void onUpdate() {
         if(!this.getState()) return;
-        mc.timer.timerSpeed = 0.5F;
-        if(mc.thePlayer.ticksExisted % 50 == 0 && transactions.size() > currentTransaction) {
+        mc.timer.timerSpeed = 0.6F;
+        if(mc.thePlayer.ticksExisted % 50 == 0 && (transactions.size()-1) > currentTransaction) {
            mc.thePlayer.sendQueue.addToSendQueueNoEvent(transactions.get(++currentTransaction)));
         }
         if(mc.thePlayer.ticksExisted % 500 == 0) {
