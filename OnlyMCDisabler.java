@@ -45,7 +45,7 @@ public class OnlyMCDisabler extends Module {
            mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer.C06PacketPlayerPosLook(mc.thePlayer.posX, mc.thePlayer.posY - rand, mc.thePlayer.posZ, 
                                                                     mc.thePlayer.rotationYaw, mc.thePlayer.rotationPitch, mc.thePlayer.onGround));
         }
-        if(mc.thePlayer.ticksExisted % 120 == 0 && transactions.size() > currentTransaction) {
+        if(mc.thePlayer.ticksExisted % 120 == 0 && (transactions.size()-1) > currentTransaction) {
            mc.thePlayer.sendQueue.addToSendQueueNoEvent(transactions.get(++currentTransaction)));
         }
     }
