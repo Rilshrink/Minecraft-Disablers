@@ -21,7 +21,7 @@ public class LunarGGDisabler extends Module {
         if(packet instanceof C03PacketPlayer) {
             C03PacketPlayer c03 = (C03PacketPlayer)packet;
             mc.thePlayer.sendQueue.addToSendQueueNoEvent(new C0CPacketInput());
-            if(mc.thePlayer.ticksExisted % 15 == 0) {
+            if(mc.thePlayer.ticksExisted % 50 == 0) {
                 c03.y += RandomUtils.randDouble(100, 1000);
             }
         }
@@ -44,8 +44,7 @@ public class LunarGGDisabler extends Module {
     
     public void onUpdate() {
         if(!this.getState()) return;
-        mc.timer.timerSpeed = 0.6F;
-        if(mc.thePlayer.ticksExisted % 54 == 0 && (transactions.size()-1) > currentTransaction) {
+        if(mc.thePlayer.ticksExisted % 100 == 0 && (transactions.size()-1) > currentTransaction) {
            mc.thePlayer.sendQueue.addToSendQueueNoEvent(transactions.get(++currentTransaction)));
         }
         if(mc.thePlayer.ticksExisted % 300 == 0) {
