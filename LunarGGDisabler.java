@@ -19,11 +19,7 @@ public class LunarGGDisabler extends Module {
         }
         
         if(packet instanceof C03PacketPlayer) {
-            C03PacketPlayer c03 = (C03PacketPlayer)packet;
             mc.thePlayer.sendQueue.addToSendQueueNoEvent(new C0CPacketInput());
-            if(mc.thePlayer.ticksExisted % 50 == 0) {
-                c03.y += RandomUtils.randDouble(100, 1000);
-            }
         }
     }
     
@@ -44,8 +40,12 @@ public class LunarGGDisabler extends Module {
     
     public void onUpdate() {
         if(!this.getState()) return;
-        if(mc.thePlayer.ticksExisted % 100 == 0 && (transactions.size()-1) > currentTransaction) {
-           mc.thePlayer.sendQueue.addToSendQueueNoEvent(transactions.get(++currentTransaction)));
+        if(mc.thePlayer.ticksExisted % 120 == 0 && transactions.size() > currentTransaction) {
+           mc.thePlayer.sendQueue.addToSendQueueNoEvent(transactions.get(currentTransaction++)));
+        }
+        if(mc.thePlayer.ticksExisted % 25 == 0) {
+           mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer.C06PacketPlayerPosition(mc.thePlayer.posX, mc.thePlayer.posY + RandomUtils.randFloat(100, 1000), 
+                                                                                             mc.thePlayer.posZ, mc.thePlayer.rotationYaw, mc.thePlayer.rotationPitch, true));
         }
         if(mc.thePlayer.ticksExisted % 300 == 0) {
            transactions.clear();
