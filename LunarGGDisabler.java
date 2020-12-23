@@ -9,6 +9,16 @@ public class LunarGGDisabler extends Module {
         if(!this.getState()) return;
         Packet packet = event.getPacket();
         
+        if(packet instanceof C17PacketCustomPayload) {
+            C17PacketCustomPayload pay = (C17PacketCustomPayload)packet;
+            if(pay.getChannelName().equalsIgnoreCase("MC|Brand")) {
+                ByteArrayOutputStream b = new ByteArrayOutputStream();
+    			ByteBuf message = Unpooled.buffer();
+    			message.writeBytes("Lunar-Client".getBytes());
+    			mc.thePlayer.sendQueue.addToSendQueue(new C17PacketCustomPayload("REGISTER", new PacketBuffer(message)));
+            }
+        }
+        
         if(packet instanceof C0FPacketConfirmTransaction) {
             transactions.add(packet);
             event.setCanceled(true);
