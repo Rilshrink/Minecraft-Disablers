@@ -6,6 +6,7 @@ Kauri infinite <br>
 Cold Network (Temporary 10 minutes, ping spoof alerts over time) <br>
 OnlyMC infinite <br>
 LunarGG infinite <br>
+HazelMC (I believe) infinite <br>
 Redesky 'disabler' it allows you to vanilla fly infinitely but other than that not really a disabler. <br>
 ACMC Disabler, wrote it from memory, might not work will test...<br>
 <br>
