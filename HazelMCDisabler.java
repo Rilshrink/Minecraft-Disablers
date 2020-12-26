@@ -49,9 +49,10 @@ public class HazelMCDisabler extends Module {
            mc.thePlayer.sendQueue.addToSendQueueNoEvent(transactions.get(currentTransaction++)));
         }
         if(mc.thePlayer.ticksExisted % 100 == 0) {
-          for(Packet p : KeepAlives) {
-            if(p != null) mc.thePlayer.sendQueue.addToSendQueueNoEvent(p);
-          }
+            for(Packet p : KeepAlives) {
+               if(p != null) mc.thePlayer.sendQueue.addToSendQueueNoEvent(p);
+            }
+            KeepAlives.clear();
         }
     }
 }
