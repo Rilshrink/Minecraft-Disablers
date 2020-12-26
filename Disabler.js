@@ -1,4 +1,4 @@
-//F
+///api_version=2
 (script = registerScript({
     name: "Disabler",
     authors: ["Rilshrink"],
@@ -6,8 +6,8 @@
 })).import("Core.lib");
 module = {
     category: "Exploit",
-    description: "Bye Bye!",
-    values: mode = new (Java.extend(ListValue)) ("Mode", ["Lunar", "Kauri", "OnlyMC", "HazelMC"], "Lunar"),
+    description: "Bye! Bye! Bad Anticheat",
+    values: [mode = value.createList("Mode", ["Lunar", "Kauri", "OnlyMC", "HazelMC"], "Lunar")],
     onPacket: function (e) {
         switch(mode.get()) {
             case "Kauri":
@@ -75,7 +75,7 @@ module = {
                     KeepAlives.clear();
                 }
                 if(mc.thePlayer.ticksExisted % 25 == 0) {
-                    sendPacket(new C06PacketPlayerPosLook(mc.thePlayer.posX, mc.thePlayer.posY + 11, mc.thePlayer.posZ, mc.thePlayer.rotationYaw, mc.thePlayer.rotationPitch, true));
+                    sendPacket(new C06PacketPlayerPosLook(mc.thePlayer.posX, mc.thePlayer.posY + 21, mc.thePlayer.posZ, mc.thePlayer.rotationYaw, mc.thePlayer.rotationPitch, true));
                 }
                 if(mc.thePlayer.ticksExisted % 300 == 0) {
                     reset();
