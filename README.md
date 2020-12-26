@@ -7,7 +7,7 @@ Cold Network (Temporary 10 minutes, ping spoof alerts over time) <br>
 OnlyMC infinite <br>
 LunarGG infinite <br>
 HazelMC (I believe) infinite <br>
-Redesky 'disabler' it allows you to vanilla fly infinitely but other than that not really a disabler. <br>
+-Redesky removed due to not being a real disabler <br>
 ACMC Disabler, wrote it from memory, might not work will test...<br>
 <br>
 Disabler.js is for Liquidbounce
