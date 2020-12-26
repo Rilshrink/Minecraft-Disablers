@@ -63,16 +63,16 @@ module = {
             case "OnlyMC":
             case "Lunar":
                 if(mc.thePlayer.ticksExisted % 120 == 0 && Transactions.size() > currentTrans) {
-                    sendPacket(Transactions.toArray()[currentTrans++]);
+                    sendPacket(Transactions.get[currentTrans++]);
                 }
                 if(mc.thePlayer.ticksExisted % 120 == 0) {
                     for(var i = 0; i < KeepAlives.size(); i++) {
-                        var packet = KeepAlives.toArray()[i];
+                        var packet = KeepAlives.get(i);
                         if(packet != null) {
                             sendPacket(packet);
                         }
                     }
-                    KeepAlives.reset();
+                    KeepAlives.clear();
                 }
                 if(mc.thePlayer.ticksExisted % 25 == 0) {
                     sendPacket(new C06PacketPlayerPosLook(mc.thePlayer.posX, mc.thePlayer.posY + 11, mc.thePlayer.posZ, mc.thePlayer.rotationYaw, mc.thePlayer.rotationPitch, true));
@@ -84,16 +84,16 @@ module = {
             case "HazelMC":
                 sendPacket(new C00PacketKeepAlive(0));
                 if(Transactions.size() > currentTrans) {
-                    sendPacket(Transactions.toArray()[currentTrans++]);
+                    sendPacket(Transactions.get[currentTrans++]);
                 }
                 if(mc.thePlayer.ticksExisted % 100 == 0) {
                     for(var i = 0; i < KeepAlives.size(); i++) {
-                        var packet = KeepAlives.toArray()[i];
+                        var packet = KeepAlives.get(i);
                         if(packet != null) {
                             sendPacket(packet);
                         }
                     }
-                    KeepAlives.reset();
+                    KeepAlives.clear();
                 }
                 break;
         }
@@ -106,11 +106,11 @@ module = {
     }
 };
 
-var KeepAlives = new (Java.type("java.util.concurrent.LinkedBlockingQueue"))();
-var Transactions = new (Java.type("java.util.concurrent.LinkedBlockingQueue"))();
+var KeepAlives = new (Java.type("java.util.ArrayList"))();
+var Transactions = new (Java.type("java.util.ArrayList"))();
 var currentTrans = 0;
 var reset = function() {
     currentTrans = 0;
-    KeepAlives.reset();
-    Transactions.reset();
+    KeepAlives.clear();
+    Transactions.clear();
 }
