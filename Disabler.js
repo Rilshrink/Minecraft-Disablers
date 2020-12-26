@@ -16,6 +16,7 @@ module = {
                 }
                 break;
             case "Lunar":
+                /*
                 if(e.getPacket() instanceof C17PacketCustomPayload) {
                     if(e.getPacket().getChannelName() == "MC|Brand") {
                         var b = new (Java.type("java.io.ByteArrayOutputStream"))();
@@ -24,13 +25,16 @@ module = {
                         sendPacket(new C17PacketCustomPayload("REGISTER", new (Java.type("net.minecraft.network.PacketBuffer")(message))));
                     }
                 }
+                */
             case "OnlyMC":
                 if(e.getPacket() instanceof C0FPacketConfirmTransaction) {
                     Transactions.add(e.getPacket());
                     e.cancelEvent();
                 }
                 if(e.getPacket() instanceof C00PacketKeepAlive) {
-                    e.getPacket().key-=1337;
+                    //Temporary until I can figure out how to e.getPacket().key -= 1337;
+                    KeepAlives.add(e.getPacket());
+                    e.cancelEvent();
                 }
                 if(e.getPacket() instanceof C03PacketPlayer) {
                     sendPacket(new C0CPacketInput());
@@ -51,7 +55,7 @@ module = {
                 break;
         }
     },
-    onWorld: function() {
+    onWorld: function(ev) {
         reset();
     },
     onUpdate: function () {
@@ -60,6 +64,15 @@ module = {
             case "Lunar":
                 if(mc.thePlayer.ticksExisted % 120 == 0 && Transactions.size() > currentTrans) {
                     sendPacket(Transactions.toArray()[currentTrans++]);
+                }
+                if(mc.thePlayer.ticksExisted % 120 == 0) {
+                    for(var i = 0; i < KeepAlives.size(); i++) {
+                        var packet = KeepAlives.toArray()[i];
+                        if(packet != null) {
+                            sendPacket(packet);
+                        }
+                    }
+                    KeepAlives.reset();
                 }
                 if(mc.thePlayer.ticksExisted % 25 == 0) {
                     sendPacket(new C06PacketPlayerPosLook(mc.thePlayer.posX, mc.thePlayer.posY + 11, mc.thePlayer.posZ, mc.thePlayer.rotationYaw, mc.thePlayer.rotationPitch, true));
