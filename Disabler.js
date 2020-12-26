@@ -80,6 +80,7 @@ module = {
                             sendPacket(packet);
                         }
                     }
+                    KeepAlives.reset();
                 }
                 break;
         }
