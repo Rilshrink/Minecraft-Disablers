@@ -16,11 +16,12 @@ module = {
                 }
                 break;
             case "Verus Combat":
-                if (e.getPacket() instanceof C0FPacketConfirmTransaction && currentTrans != 0) {
-                    e.cancelEvent();
+                if (e.getPacket() instanceof C0FPacketConfirmTransaction) {
+                    if(currentTrans!=0) e.cancelEvent();
+                    currentTrans++;
                 } else if(e.getPacket() instanceof C0BPacketEntityAction) {
                     e.cancelEvent();
-                } else if(e.getPacket() instanceof C0FPacketConfirmTransaction) currentTrans++;
+                } 
                 break;
             case "Lunar":
                 /*
