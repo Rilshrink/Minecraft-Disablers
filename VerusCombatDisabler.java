@@ -9,10 +9,16 @@ public class VerusCombatDisabler extends Module {
     public void onPacket(EventPacket event) {
         if(!this.getState()) return;
         Packet packet = event.getPacket();
-        if(packet instanceof C0FPacketConfirmTransaction && count != 0) {
-            event.setCanceled(true);
-        } else if(packet instanceof C0BPacketEntityAction) {
-            event.setCanceled(true);
-        } else if(p instancecof C0FPacketConfirmTransaction) count++;
+        if (packet instanceof C0FPacketConfirmTransaction) {
+				if(mc.thePlayer.isDead) {
+					confirmtranscounter = 0;
+				} else if(confirmtranscounter == 0) {
+					mc.thePlayer.sendQueue.addToSendQueueNoEvent(new C0BPacketEntityAction(mc.thePlayer, Action.STOP_SPRINTING));
+				}
+				if(confirmtranscounter != 0) event.setCanceled(true);
+				confirmtranscounter++;
+			} else if(packet instanceof C0BPacketEntityAction) {
+				event.setCanceled(true);
+			}
     }
 }
