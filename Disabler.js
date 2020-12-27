@@ -7,13 +7,20 @@
 module = {
     category: "Exploit",
     description: "Bye! Bye! Bad Anticheat",
-    values: [mode = value.createList("Mode", ["Lunar", "Kauri", "OnlyMC", "HazelMC"], "Lunar")],
+    values: [mode = value.createList("Mode", ["Lunar", "Kauri", "OnlyMC", "HazelMC", "Verus Combat"], "Lunar")],
     onPacket: function (e) {
         switch(mode.get()) {
             case "Kauri":
                 if(e.getPacket() instanceof C0FPacketConfirmTransaction) {
                     e.cancelEvent();
                 }
+                break;
+            case "Verus Combat":
+                if (e.getPacket() instanceof C0FPacketConfirmTransaction && currentTrans != 0) {
+                    e.cancelEvent();
+                } else if(e.getPacket() instanceof C0BPacketEntityAction) {
+                    e.cancelEvent();
+                } else if(e.getPacket() instanceof C0FPacketConfirmTransaction) currentTrans++;
                 break;
             case "Lunar":
                 /*
