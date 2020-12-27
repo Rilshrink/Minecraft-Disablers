@@ -7,6 +7,8 @@ Cold Network (Temporary 10 minutes, ping spoof alerts over time) <br>
 OnlyMC infinite <br>
 LunarGG infinite <br>
 HazelMC (I believe) infinite <br>
+Mineplex Combat infinite <br>
+Verus Combat unsure of it being infinite <br>
 -Redesky removed due to not being a real disabler <br>
 ACMC Disabler, wrote it from memory, might not work will test...<br>
 <br>
