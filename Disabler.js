@@ -19,8 +19,6 @@ module = {
                 if (e.getPacket() instanceof C0FPacketConfirmTransaction) {
                     if(mc.thePlayer.isDead) {
                         currentTrans = 0;
-                    } else if(currentTrans == 0) {
-                        sendPacket(new C0BPacketEntityAction(mc.thePlayer, Action.STOP_SPRINTING));
                     }
                     if(currentTrans!=0) e.cancelEvent();
                     currentTrans++;
