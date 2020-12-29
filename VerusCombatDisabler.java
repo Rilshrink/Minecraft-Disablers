@@ -12,8 +12,6 @@ public class VerusCombatDisabler extends Module {
         if (packet instanceof C0FPacketConfirmTransaction) {
 				if(mc.thePlayer.isDead) {
 					confirmtranscounter = 0;
-				} else if(confirmtranscounter == 0) {
-					mc.thePlayer.sendQueue.addToSendQueueNoEvent(new C0BPacketEntityAction(mc.thePlayer, Action.STOP_SPRINTING));
 				}
 				if(confirmtranscounter != 0) event.setCanceled(true);
 				confirmtranscounter++;
