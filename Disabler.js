@@ -17,26 +17,12 @@ module = {
                 break;
             case "Verus Combat":
                 if (e.getPacket() instanceof C0FPacketConfirmTransaction) {
-                    if(mc.thePlayer.isDead) {
-                        currentTrans = 0;
-                    }
-                    if(currentTrans!=0) e.cancelEvent();
-                    currentTrans++;
+                    if(currentTrans++>0) e.cancelEvent();
                 } else if(e.getPacket() instanceof C0BPacketEntityAction) {
                     e.cancelEvent();
                 } 
                 break;
             case "Lunar":
-                /*
-                if(e.getPacket() instanceof C17PacketCustomPayload) {
-                    if(e.getPacket().getChannelName() == "MC|Brand") {
-                        var b = new (Java.type("java.io.ByteArrayOutputStream"))();
-                        var message = (Java.type("io.netty.buffer.Unpooled")).buffer();
-                        message.writeBytes("Lunar-Client".getBytes());
-                        sendPacket(new C17PacketCustomPayload("REGISTER", new (Java.type("net.minecraft.network.PacketBuffer")(message))));
-                    }
-                }
-                */
             case "OnlyMC":
                 if(e.getPacket() instanceof C0FPacketConfirmTransaction) {
                     Transactions.add(e.getPacket());
@@ -70,6 +56,7 @@ module = {
         reset();
     },
     onUpdate: function () {
+        DisablerModule.tag = mode.get();
         switch(mode.get()) {
             case "OnlyMC":
             case "Lunar":
