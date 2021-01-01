@@ -57,7 +57,7 @@ public class LunarGGDisabler extends Module {
            mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer.C06PacketPlayerPosition(mc.thePlayer.posX, mc.thePlayer.posY + RandomUtils.randFloat(100, 1000), 
                                                                                              mc.thePlayer.posZ, mc.thePlayer.rotationYaw, mc.thePlayer.rotationPitch, true));
         }
-        if(mc.thePlayer.ticksExisted % 300 == 0) {
+        if(mc.thePlayer.ticksExisted % 600 == 0) {
            transactions.clear();
            currentTransaction = 0;
         }
