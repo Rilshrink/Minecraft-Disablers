@@ -4,7 +4,7 @@ A list of known Minecraft Anticheat Disablers, this is mostly so the Dev's of th
 Current Disablers: <br>
 Kauri infinite <br>
 OnlyMC infinite <br>
-LunarGG infinite <br>
+LunarGG infinite (Patched :() working on fix ) <br>
 HazelMC infinite <br>
 Mineplex Combat infinite <br>
 Verus Combat works for 20 minutes, working on making it infinite <br>
