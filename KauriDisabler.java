@@ -1,6 +1,6 @@
 public class KauriDisabler extends Module {
     public KauriDisabler() {
-        super("Disabler", "Disables Kauri Anticheat", Catagory.MISC);
+        super("Disabler", "Disables Kauri Anticheat", Category.MISC);
     }
     public void onEnable() {
         if(!mc.isSinglePlayer()) {
